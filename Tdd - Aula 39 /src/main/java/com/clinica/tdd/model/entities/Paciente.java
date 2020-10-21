@@ -1,12 +1,15 @@
 package com.clinica.tdd.model.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.sun.istack.NotNull;
 
@@ -28,6 +31,9 @@ public class Paciente {
 	private LocalDate data_de_nascimento;
 	private Integer peso;
 	private Integer altura;
+	
+	@OneToMany(mappedBy = "paciente")
+	private List<Consulta> consulta = new ArrayList<>();
 	
 	
 	/**
@@ -175,6 +181,21 @@ public class Paciente {
 	 */
 	public void setAltura(Integer altura) {
 		this.altura = altura;
+	}
+
+	
+	/**
+	 * @return the consulta
+	 */
+	public List<Consulta> getConsulta() {
+		return consulta;
+	}
+
+	/**
+	 * @param consulta the consulta to set
+	 */
+	public void setConsulta(List<Consulta> consulta) {
+		this.consulta = consulta;
 	}
 	
 	

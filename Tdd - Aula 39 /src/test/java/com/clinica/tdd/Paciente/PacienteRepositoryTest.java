@@ -1,4 +1,4 @@
-package com.clinica.tdd.Paciente;
+package com.clinica.tdd.paciente;
 
 import java.time.LocalDate;
 
